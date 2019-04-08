@@ -20,7 +20,7 @@ DeivaoDrawer(
 ),
 ```
 
-## [Example](./exemple/)
+## [Example](https://github.com/davidsdearaujo/deivao_drawer/tree/master/exemple)
 
 ## Getting Started Packages
 
