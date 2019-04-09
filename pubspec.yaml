@@ -1,8 +1,9 @@
 name: deivao_drawer
-description: Deivao Custom Drawer.
-version: 1.0.0
+description: Deivao Beautiful Custom Drawer.
+version: 1.0.0+1
 author: David Araujo <davidsdearaujo@gmail.com>
 homepage: https://github.com/davidsdearaujo
+github: https://github.com/davidsdearaujo/deivao_drawer
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
