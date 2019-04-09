@@ -1,5 +1,5 @@
 # Deivão Drawer
-![](https://github.com/davidsdearaujo/deivao_drawer/blob/master/exemple.gif)
+![](https://github.com/davidsdearaujo/deivao_drawer/raw/master/exemple.gif)
 
 ## How to use
 pubspec.yaml
