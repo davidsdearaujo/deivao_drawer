@@ -62,14 +62,16 @@ class _DeivaoDrawerState extends State<DeivaoDrawer>
             builder: (context, _child) {
               return Transform(
                 transform: Matrix4.identity()
-                  ..setEntry(3, 2, 0.001)
+                  ..setEntry(3, 2, 0.0005)
                   ..rotateY(-pi * drawerRotationAnim.value)
-                  ..translate(drawerTranslationAnim.value.dx)
-                  ..scale(drawerScaleAnim.value),
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  height: double.infinity,
-                  child: _child,
+                  ..translate(drawerTranslationAnim.value.dx),
+                child: Align(
+                  widthFactor: drawerScaleAnim.value,
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    height: double.infinity,
+                    child: _child,
+                  ),
                 ),
               );
             },

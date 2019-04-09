@@ -26,14 +26,14 @@ mixin DrawerAnimationMixin<T extends StatefulWidget>
     ).animate(controller);
 
     drawerTranslationAnim = Tween<Offset>(
-      begin: Offset(-100, 0),
+      begin: Offset(-50, 0),
       end: Offset(0, 0),
-    ).animate(controller);
+    ).animate(CurvedAnimation(parent: controller, curve: Interval(0, 0.5)));
 
     drawerScaleAnim = Tween<double>(
-      begin: 0.8,
+      begin: 0.9,
       end: 1,
-    ).animate(controller);
+    ).animate(CurvedAnimation(parent: controller, curve: Interval(0, 0.5)));
 
     scaffoldTranslationAnim = Tween<Offset>(
       begin: Offset(0, 0),
