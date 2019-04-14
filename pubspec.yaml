@@ -1,7 +1,7 @@
 name: deivao_drawer
-description: Deivao Beautiful Custom Drawer.
-version: 1.0.0+3
-author: David Araujo <davidsdearaujo@gmail.com>
+description: Deivao Beautiful Custom Drawer with easy implementation and customization.
+version: 1.0.0+4
+author: David Araujo - Flutterando <davidsdearaujo@gmail.com>
 homepage: https://github.com/davidsdearaujo
 github: https://github.com/davidsdearaujo/deivao_drawer
 
