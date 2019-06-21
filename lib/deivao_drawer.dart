@@ -10,18 +10,17 @@ export 'drawer_controller.dart';
 class DeivaoDrawer extends StatefulWidget {
   final Widget child;
   final Widget drawer;
-  DeivaoDrawerController controller;
+  final DeivaoDrawerController controller;
 
   DeivaoDrawer({
     Key key,
     @required this.drawer,
     @required this.child,
-    this.controller,
+    DeivaoDrawerController controller,
   })  : assert(drawer != null),
         assert(child != null),
-        super(key: key) {
-    controller ??= DeivaoDrawerController();
-  }
+        controller = controller ?? DeivaoDrawerController(),
+        super(key: key);
 
   @override
   _DeivaoDrawerState createState() => _DeivaoDrawerState();
