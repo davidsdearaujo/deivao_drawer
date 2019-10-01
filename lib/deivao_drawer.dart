@@ -36,60 +36,62 @@ class _DeivaoDrawerState extends State<DeivaoDrawer>
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onHorizontalDragStart: (details) {
-        enableDrawing = controller.value == 1 ||
-            (details.globalPosition.dx <
-                MediaQuery.of(context).size.height * 0.1);
-      },
-      onHorizontalDragUpdate: (details) {
-        if (enableDrawing)
-          controller.value +=
-              details.primaryDelta / MediaQuery.of(context).size.width * 1.5;
-      },
-      onHorizontalDragEnd: (details) {
-        if (controller.value > 0.5)
-          controller.forward();
-        else
-          controller.reverse();
-      },
-      child: Stack(
-        children: <Widget>[
-          AnimatedBuilder(
-            animation: controller,
-            child: Material(child: widget.drawer),
-            builder: (context, _child) {
-              return Transform(
-                transform: Matrix4.identity()
-                  ..setEntry(3, 2, 0.0005)
-                  ..rotateY(-pi * drawerRotationAnim.value)
-                  ..translate(drawerTranslationAnim.value.dx),
-                child: Align(
-                  widthFactor: drawerScaleAnim.value,
+    return Material(
+      color: Theme.of(context).primaryColor,
+      child: GestureDetector(
+        onHorizontalDragStart: (details) {
+          enableDrawing = controller.value == 1 ||
+              (details.globalPosition.dx <
+                  MediaQuery.of(context).size.height * 0.1);
+        },
+        onHorizontalDragUpdate: (details) {
+          if (enableDrawing)
+            controller.value +=
+                details.primaryDelta / MediaQuery.of(context).size.width * 1.5;
+        },
+        onHorizontalDragEnd: (details) {
+          if (controller.value > 0.5)
+            controller.forward();
+          else
+            controller.reverse();
+        },
+        child: Stack(
+          children: <Widget>[
+            AnimatedBuilder(
+              animation: controller,
+              child: Material(child: widget.drawer),
+              builder: (context, _child) {
+                return Transform(
+                  transform: Matrix4.identity()
+                    ..setEntry(3, 2, 0.0005)
+                    ..rotateY(-pi * drawerRotationAnim.value)
+                    ..translate(drawerTranslationAnim.value.dx),
+                  // ..translate(drawerTranslationAnim.value.dx, drawerTranslationAnim.value.dy)
+                  // ..scale(1.0, drawerScaleAnim.value),
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.8,
                     height: double.infinity,
                     child: _child,
                   ),
-                ),
-              );
-            },
-          ),
-          AnimatedBuilder(
-            animation: scaffoldTranslationAnim,
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              child: widget.child,
+                );
+              },
             ),
-            builder: (context, _child) {
-              return Transform.translate(
-                offset: scaffoldTranslationAnim.value,
-                child: _child,
-              );
-            },
-          )
-        ],
+            AnimatedBuilder(
+              animation: scaffoldTranslationAnim,
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                child: widget.child,
+              ),
+              builder: (context, _child) {
+                return Transform.translate(
+                  offset: scaffoldTranslationAnim.value,
+                  child: _child,
+                );
+              },
+            )
+          ],
+        ),
       ),
     );
   }

@@ -26,7 +26,7 @@ mixin DrawerAnimationMixin<T extends StatefulWidget>
     ).animate(controller);
 
     drawerTranslationAnim = Tween<Offset>(
-      begin: Offset(-50, 0),
+      begin: Offset(-50, MediaQuery.of(context).size.height * 0.05),
       end: Offset(0, 0),
     ).animate(CurvedAnimation(parent: controller, curve: Interval(0, 0.5)));
 
@@ -47,6 +47,7 @@ mixin DrawerAnimationMixin<T extends StatefulWidget>
     else
       controller.reverse();
   }
+
   @override
   void dispose() {
     controller.dispose();
